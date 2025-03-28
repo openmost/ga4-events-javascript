@@ -7,7 +7,7 @@
 
     function sendEvent(eventName, params = {}) {
         const defaultParams = {
-            language: navigator.language,
+            language: navigator.language || navigator.userLanguage,
             page_location: window.location.href,
             page_referrer: document.referrer,
             page_title: document.title,
