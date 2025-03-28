@@ -6,7 +6,15 @@
     window.dataLayer = window.dataLayer || [];
 
     function sendEvent(eventName, params = {}) {
-        window.dataLayer.push({ event: eventName, ...params });
+        const defaultParams = {
+            language: navigator.language,
+            page_location: window.location.href,
+            page_referrer: document.referrer,
+            page_title: document.title,
+            screen_resolution: `${window.screen.width}x${window.screen.height}`
+        };
+
+        window.dataLayer.push({ event: eventName, ...defaultParams, ...params });
     }
 
     // Track first visit (check if it's the first visit)
@@ -42,12 +50,7 @@
 
     // Track page view
     function trackPageView() {
-        sendEvent("page_view", {
-            page_location: window.location.href,
-            page_referrer: document.referrer,
-            page_title: document.title,
-            language: navigator.language
-        });
+        sendEvent("page_view");
     }
 
     // Track outbound link clicks
