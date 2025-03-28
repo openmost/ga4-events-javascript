@@ -11,7 +11,7 @@
             page_location: window.location.href,
             page_referrer: document.referrer,
             page_title: document.title,
-            screen_resolution: `${window.screen.width}x${window.screen.height}`
+            screen_resolution: `${window.screen.width}x${window.screen.height}`,
             user_agent: navigator.userAgent,
             operating_system: navigator.platform,
             timestamp: new Date().toISOString(),  
